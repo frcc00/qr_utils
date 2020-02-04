@@ -20,6 +20,12 @@ class QrUtils {
         await _channel.invokeMethod('generateQR', {"content": content});
     return imageFromUInt8List(uInt8list);
   }
+  
+  static Future<Uint8List> generateQRAsUint8List(String content) async {
+    final Uint8List uInt8list =
+        await _channel.invokeMethod('generateQR', {"content": content});
+    return uInt8list;
+  }
 
   // Returns Image from base64
   static Image imageFromBase64String(String base64String) {
